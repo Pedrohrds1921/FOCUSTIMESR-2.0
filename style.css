@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    font-size:62.5%;
+}
+body{
+max-width:100%;
+min-height:100VH;
+display: flex;
+margin: 3rem;
+
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+   
+}
+span{
+    font-size:8.8rem;
+    font-weight: 700;  
+ }
+
+#timer{
+display: flex;
+
+}
+section{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2;
+   
+}
+
+button{
+    background-color: transparent;
+    border:none;
+}
+
+
+#controls{
+    gap: 2rem;
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    width: 312px;
+    height: 48px;
+}
+
+.noVisiliby{
+    display: none;
+  
+   }
+
+#controls button{
+    cursor: pointer;
+}
+
+#cards{
+    display: grid;
+    width: 250px;
+    height: 250px;
+    
+
+}
+
+   #cards button{
+    width: 10.8rem;
+    height: 11.2rem;
+    background-color: #E1E1E6;
+    border-radius: 2.4rem;
+    cursor: pointer;
+  
+}
+
+#cards button svg{
+    width: 40px;
+}
+#cards .rain{
+    grid-column: 2;
+    
+}
+
+.hide{
+display: none;
+}
+
+
+
+
+#cards .select{
+    background-color: #02799D;
+}
+
+
+#cards .select svg path{
+    fill: white;
+}
