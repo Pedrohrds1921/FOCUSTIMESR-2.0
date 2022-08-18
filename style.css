@@ -10,9 +10,9 @@
 }
 body{
 max-width:100%;
-min-height:100VH;
+height:100vh;
 display: flex;
-margin: 3rem;
+
 
 }
 

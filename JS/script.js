@@ -40,6 +40,7 @@ function hideHours(hours,minutes){
     let minutes= Number(minutesDisplay.textContent)
     let hours= Number(hoursDisplay.textContent)
     let seconds= Number(secondsDisplay.textContent)
+
     if(hours<10){
         minutes=minutes+5
         seconds=0
@@ -62,7 +63,11 @@ function lessFive(){
     let minutes= Number(minutesDisplay.textContent)
     let hours= Number(hoursDisplay.textContent)
     let seconds= Number(secondsDisplay.textContent)
-   if(hours==0&&minutes==0){
+    
+
+   if(hours==0&&minutes<=5){
+    minutes=minutes-5
+    minutes=0
     return
    }
     if(hours>=1&&minutes==0){
@@ -80,6 +85,17 @@ function lessFive(){
     
 }
 
+
+function resetControls(){
+    buttonPause.classList.add('hide')
+    buttonPlay.classList.remove('hide')
+}
+
+function resetTimer(){
+    uptadeDisplay(0,25,0)
+
+}
+
 function countdown(){
     timer= setTimeout(function(){
     let minutes= Number(minutesDisplay.textContent)
@@ -88,8 +104,8 @@ function countdown(){
     let isFinished = hours<=0 && minutes <= 0 && seconds<= 0
 
     if(isFinished){
-        buttonPause.classList.add('hide')
-        buttonPlay.classList.remove('hide')
+       resetControls()
+        resetTimer()
         return
       }
 
@@ -97,9 +113,8 @@ function countdown(){
         hours--
         minutes=60
       }
-
       if(seconds<=0){
-        seconds=60
+        seconds=5
         minutes--
       }
 
@@ -135,6 +150,16 @@ buttonPause.addEventListener("click",function(){
 
 
 })
+
+buttonStop.addEventListener("click",function(){
+    clearTimeout(timer)
+    resetControls()
+    resetTimer()
+
+
+})
+
+
 
 buttonFire.addEventListener("click",function(){
     resetCards()
