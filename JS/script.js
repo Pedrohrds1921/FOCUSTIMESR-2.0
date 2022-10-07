@@ -1,3 +1,6 @@
+
+import{ elements} from './input.js'
+
 const buttonPause=document.querySelector(".pause")
 const buttonPlay= document.querySelector(".play")
 const buttonStop= document.querySelector(".stop")
@@ -114,7 +117,7 @@ function countdown(){
         minutes=60
       }
       if(seconds<=0){
-        seconds=5
+        seconds=60
         minutes--
       }
 
@@ -192,3 +195,5 @@ buttonLess.addEventListener("click",function(){
 
 })
 
+
+elements()

@@ -11,17 +11,18 @@
 body{
 max-width:100%;
 height:100vh;
-display: flex;
+display: grid;
+place-items: center;
+
 
 
 }
 
 main{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
+
+    
     gap: 10rem;
    
 }
@@ -48,7 +49,6 @@ button{
     border:none;
 }
 
-
 #controls{
     gap: 2rem;
     display: flex;
@@ -69,18 +69,22 @@ button{
 
 #cards{
     display: grid;
-    width: 250px;
-    height: 250px;
+  
+    gap: 1.5rem;
     
 
 }
 
    #cards button{
-    width: 10.8rem;
-    height: 11.2rem;
+    width: 15rem;
+    height: 15rem;
     background-color: #E1E1E6;
     border-radius: 2.4rem;
     cursor: pointer;
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+    position: relative;
   
 }
 
@@ -98,12 +102,87 @@ display: none;
 
 
 
-
+/*
 #cards .select{
-    background-color: #02799D;
-}
+    background-color: #000dc2;
+}*/
 
-
+/*
 #cards .select svg path{
     fill: white;
-}
+}*/
+
+input[type=range]{
+    width: 9.6rem;
+    height: 0.3rem;
+    position: relative;
+    border-radius: .3rem;
+    -webkit-appearance: none;
+   
+    
+    
+  }
+
+
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 1.8rem;
+    height: 1.8rem;
+   cursor: pointer;
+   z-index: 3;
+   position: relative;
+ 
+
+
+
+  }
+
+  .selector{
+    
+    height: 1.6rem;
+    width: 1.6rem;
+    position:absolute;
+
+    left: 50%;
+    transform: translateX(-49%);    
+    z-index: 2;
+    background-color: rgb(0, 162, 255);
+
+    border-radius: 50%;
+
+    display: grid;
+    place-content: center;
+   
+    padding: .5rem;  }
+
+
+  .selectorBtn{
+    width: 1.3rem;
+    height: 1.3rem;
+    background-image: url(assets/volume.svg);
+    background-size: cover;
+    
+ 
+
+
+  }
+
+  .range{
+    
+    width: 9.5rem;
+    display: grid;
+    place-items: center;
+    position: relative;
+ 
+  }
+
+  .progress{
+    width: 50%;
+    height: .3rem;
+    background-color: rgb(0, 172, 252);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+
