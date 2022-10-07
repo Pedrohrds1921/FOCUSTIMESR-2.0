@@ -102,15 +102,15 @@ display: none;
 
 
 
-/*
+
 #cards .select{
     background-color: #000dc2;
-}*/
+}
 
-/*
+
 #cards .select svg path{
     fill: white;
-}*/
+}
 
 input[type=range]{
     width: 9.6rem;
@@ -126,10 +126,11 @@ input[type=range]{
 
   input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.9rem;
+    height: 1.9rem;
    cursor: pointer;
    z-index: 3;
+   
    position: relative;
  
 
@@ -139,16 +140,17 @@ input[type=range]{
 
   .selector{
     
-    height: 1.6rem;
-    width: 1.6rem;
+    height: 1.9rem;
+    width: 1.9rem;
     position:absolute;
 
     left: 50%;
     transform: translateX(-49%);    
     z-index: 2;
-    background-color: rgb(0, 162, 255);
-
+    
+    background-color: white;
     border-radius: 50%;
+    border: .1rem solid black;
 
     display: grid;
     place-content: center;
@@ -161,14 +163,9 @@ input[type=range]{
     height: 1.3rem;
     background-image: url(assets/volume.svg);
     background-size: cover;
-    
- 
-
-
   }
 
   .range{
-    
     width: 9.5rem;
     display: grid;
     place-items: center;
@@ -179,10 +176,20 @@ input[type=range]{
   .progress{
     width: 50%;
     height: .3rem;
-    background-color: rgb(0, 172, 252);
+    background-color: #0011ff;
     position: absolute;
     top: 0;
     left: 0;
   }
+
+  #cards .select .progress{
+    background-color: #33ff00;
+  }
+
+
+  #cards .select .selector{
+    background-color: #33ff00;
+  }
+
 
 

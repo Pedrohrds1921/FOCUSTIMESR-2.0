@@ -2,11 +2,15 @@
 
  export function elements(){
     const inputs=document.querySelectorAll('.range input')
-    const btnSelector=document.querySelectorAll('.range .selector')
-     const progressBars=document.querySelectorAll('.range .progress')
-    
+
     inputs.forEach(input=>{
-    input.addEventListener('input',e=>{e.target= btnSelector.forEach(btn=>{
-        btn.style.left=e.target.value +"%"})})})
+      input.addEventListener("input",moveinputs)})
+
+    function moveinputs(event){
+    const btnselector = event.target.nextElementSibling
+    const progress= btnselector.nextElementSibling
+    btnselector.style.left= event.target.value + "%";
+    progress.style.width= event.target.value + "%";}
+
     
-    }
+}
