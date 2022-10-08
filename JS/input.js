@@ -1,36 +1,20 @@
-import sound from "./souds.js"
+export  function inputs(){
+   
+  
+    const inputs = document.querySelectorAll(".range input")
 
- export function elements(){
-    const inputs=document.querySelectorAll('.range input')
-
-    inputs.forEach(input=>{input.addEventListener("change",moveinputs)})
-
-     
-
-
-        function volumeControls(e){
-          sound().fire.play()
-          sound().fire.volume= e.target.value
-        
-       
-        }
-
-    function moveinputs(event){
-    
-    const btnselector = event.target.nextElementSibling
-    const progress= btnselector.nextElementSibling
-    btnselector.style.left= event.target.value + "%";
-    progress.style.width=  event.target.value+ "%";
-      sound().fire.play()
-      console.log(sound().rain.volume)
-        console.log(event.target.value)
-  }
-
-
-
+    inputs.forEach(input=>{
+    input.addEventListener("input",volumecontrol) 
+})
+        function volumecontrol(){
+        const btnselector = this.nextElementSibling
+        const progress= btnselector.nextElementSibling
+        btnselector.style.left=(this.value*100) + "%";
+        progress.style.width=(this.value*100) + "%";
+    }
     return{
-    inputs,
-    moveinputs,
+        volumecontrol,
 
     }
+
 }

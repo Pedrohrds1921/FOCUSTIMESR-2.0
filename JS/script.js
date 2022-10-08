@@ -1,7 +1,7 @@
 
-import{ elements} from './input.js'
 import { choseThemeMode } from './dark.js'
-import  sound  from './souds.js'
+import  { sounds}  from './souds.js'
+import {inputs} from './input.js'
 
 const buttonPause=document.querySelector(".pause")
 const buttonPlay= document.querySelector(".play")
@@ -17,18 +17,18 @@ const pointHoursDisplay=document.querySelector(".pointHours")
 let minutesDisplay= document.querySelector(".minutes")
 const secondsDisplay= document.querySelector(".seconds")
 let timer
+ 
+inputs()
+const sound= sounds()
 
-
-function hideHours(hours,minutes){
-    
+function hideHours(hours,minutes){ 
     if(hours>=1){
     hoursDisplay.classList.remove("noVisiliby")
-    pointHoursDisplay.classList.remove("noVisiliby")}
-    else if(hours==0 &&minutes<=59){
+    pointHoursDisplay.classList.remove("noVisiliby")
+    }else if(hours==0 &&minutes<=59){
     hoursDisplay.classList.add("noVisiliby")
     pointHoursDisplay.classList.add("noVisiliby")
-
-    }
+}
    
     
 }
@@ -38,8 +38,6 @@ function hideHours(hours,minutes){
     secondsDisplay.textContent= String(seconds).padStart(2,"0")
     hoursDisplay.textContent= String(hours).padStart(2,"0")
  }
-  
-  
 
  function plusFive(){
     let minutes= Number(minutesDisplay.textContent)
@@ -62,8 +60,6 @@ function hideHours(hours,minutes){
 
  }
 
-
-
 function lessFive(){
     let minutes= Number(minutesDisplay.textContent)
     let hours= Number(hoursDisplay.textContent)
@@ -74,20 +70,18 @@ function lessFive(){
     minutes=minutes-5
     minutes=0
     return
-   }
-    if(hours>=1&&minutes==0){
-        hours--
-        minutes=60
-        
-    }            
-    minutes=minutes-5
-    seconds=0
+}
+if(hours>=1&&minutes==0){
+    hours--
+    minutes=60
+    
+}            
+minutes=minutes-5
+seconds=0
 
-   
-    
-    hideHours(hours,minutes)
-    uptadeDisplay(hours,minutes,seconds)
-    
+hideHours(hours,minutes)
+uptadeDisplay(hours,minutes,seconds)
+
 }
 
 
@@ -98,7 +92,6 @@ function resetControls(){
 
 function resetTimer(){
     uptadeDisplay(0,25,0)
-
 }
 
 function countdown(){
@@ -129,13 +122,7 @@ function countdown(){
 
       countdown()
     },1000)
-
-
-
-
 }
-
-
 const resetCards= function(){
     buttonForest.classList.remove("select")
     buttonFire.classList.remove("select")
@@ -147,60 +134,56 @@ buttonPlay.addEventListener("click",function(){
     buttonPlay.classList.add('hide')
     buttonPause.classList.remove('hide')
     countdown()
+   sound.buttonPressAudio.play()
 })
 buttonPause.addEventListener("click",function(){
     buttonPause.classList.add('hide')
     buttonPlay.classList.remove('hide')
     clearTimeout(timer)
-
-
+   sound.buttonPressAudio.play()
 })
 
 buttonStop.addEventListener("click",function(){
     clearTimeout(timer)
     resetControls()
     resetTimer()
-
-
+   sound.buttonPressAudio.play()
 })
-
-
-
 buttonFire.addEventListener("click",function(){
     resetCards()
     buttonFire.classList.add("select")
-   
+    sound.stopSongs()
+    sound.playFire()
 })
 buttonForest.addEventListener("click",function(){
     resetCards()
     buttonForest.classList.add("select")
+    sound.stopSongs()
+    sound.playForest()
     
 })
-
 buttonRain.addEventListener("click",function(){
     resetCards()
     buttonRain.classList.add("select")
-    sound().rain.play()
+    sound.stopSongs()
+    sound.playRain()
 })
 buttonCoffe.addEventListener("click",function(){
     resetCards()
     buttonCoffe.classList.add("select")
-  
+    sound.stopSongs()
+    sound.playcoffe()   
 })
-
 
 buttonPlus.addEventListener("click",function(){
     plusFive()
+   sound.buttonPressAudio.play()
 })
 buttonLess.addEventListener("click",function(){
     lessFive()
-    
-
-
-
+    sound.buttonPressAudio.play()
 })
 
-
-
-elements()
+inputs()
 choseThemeMode ()
+

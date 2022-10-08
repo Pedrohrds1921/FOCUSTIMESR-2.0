@@ -1,4 +1,12 @@
-export default function (){
+ import {inputs} from './input.js'
+
+export  function sounds (){
+ 
+    let volumeFire = document.querySelector('#fireVol')
+    let volumeRain = document.querySelector('#rainVol')
+    let volumeCoofe = document.querySelector('#coffeVol')
+    let volumeForest = document.querySelector('#forestVol')
+   
 
     const buttonPressAudio = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
     const kitchenTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
@@ -8,20 +16,49 @@ export default function (){
     const coffe= new Audio ("https://github.com/ELLDev/timer-with-dark-mode/blob/main/sounds/Cafeteria.wav?raw=true")
 
     function playFire(){
-       
-    
-        return fire.volume()
+        fire.play()
+        fire.loop=true
+        fire.volume= volumeFire.value
     }
-  
+
+    function playRain(){
+        rain.play()
+        rain.loop=true
+        rain.volume= volumeRain.value
+    }
+    function playForest(){
+        forest.play()
+        forest.loop=true
+        forest.volume= volumeForest.value
+      
+    }
+    function playcoffe(){
+        coffe.play()
+        coffe.loop=true
+        coffe.volume= volumeCoofe.value
+    }
+
+    function stopSongs(){
+        coffe.pause()
+        forest.pause()
+        rain.pause()
+        fire.pause()
+    }
+
+
+
+
 
     return{
-        playFire,
         buttonPressAudio,
         kitchenTimer,
-        rain,
-        fire,
-        forest,
+        playFire,
+        playRain,
+        playcoffe,
+        playForest,
+        stopSongs,
         coffe,
+       
     
     }
 
