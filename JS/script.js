@@ -1,5 +1,7 @@
 
 import{ elements} from './input.js'
+import { choseThemeMode } from './dark.js'
+import  sound  from './souds.js'
 
 const buttonPause=document.querySelector(".pause")
 const buttonPlay= document.querySelector(".play")
@@ -167,20 +169,23 @@ buttonStop.addEventListener("click",function(){
 buttonFire.addEventListener("click",function(){
     resetCards()
     buttonFire.classList.add("select")
-    
+   
 })
 buttonForest.addEventListener("click",function(){
     resetCards()
     buttonForest.classList.add("select")
+    
 })
 
 buttonRain.addEventListener("click",function(){
     resetCards()
     buttonRain.classList.add("select")
+    sound().rain.play()
 })
 buttonCoffe.addEventListener("click",function(){
     resetCards()
     buttonCoffe.classList.add("select")
+  
 })
 
 
@@ -196,4 +201,6 @@ buttonLess.addEventListener("click",function(){
 })
 
 
+
 elements()
+choseThemeMode ()

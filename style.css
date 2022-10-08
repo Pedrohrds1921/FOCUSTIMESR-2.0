@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 *{
-    padding: 0;
-    margin: 0;
+    padding:0;
+    margin:0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
@@ -9,22 +9,86 @@
     font-size:62.5%;
 }
 body{
-max-width:100%;
+width:100%;
 height:100vh;
-display: grid;
-place-items: center;
-
-
+overflow: hidden;
+transition: all .2s linear;
 
 }
 
-main{
-    display: grid;
-    place-items: center;
+.toogle{
+  background-color: #b3b6b6;
+  width: 8rem;
+  height: 3rem;
+  border-radius:5rem;
+  display: flex;
+  padding: .5rem;
+  align-items: center;
+  position: absolute;
+  left: 2.5rem;
+  top: 2.5rem;
+}
 
+.toogle input{
+  appearance: none;
+  border-radius:5rem;
+  width: 8rem;
+  height: 3rem;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 99;
+  cursor: pointer;
+  
+
+}
+
+.icons{
+  width: 8rem;
+  height: 3rem;
+  position: absolute;
+  top:0;
+  left: 0;
+  display: flex;
+  padding: .5rem;
+  align-items: center;
+}
+
+
+
+.toogle img{
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  
+  
+
+}
+#moon{
+  right:.8rem;
+}
+
+.toogle input:checked ~ .icons #soon{
+  opacity:.2;
+}
+
+.toogle input:not(:checked)~ .icons #moon{
+  opacity:.2;
+
+}
+
+
+main{
     
-    gap: 10rem;
-   
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 2.5rem;
+   overflow: hidden;
 }
 span{
     font-size:8.8rem;
@@ -68,11 +132,10 @@ button{
 }
 
 #cards{
+    width: 3rem;
     display: grid;
-  
+    place-content: center;
     gap: 1.5rem;
-    
-
 }
 
    #cards button{
@@ -103,8 +166,9 @@ display: none;
 
 
 
+
 #cards .select{
-    background-color: #000dc2;
+    background-color: #181c2c;
 }
 
 
@@ -139,7 +203,6 @@ input[type=range]{
   }
 
   .selector{
-    
     height: 1.9rem;
     width: 1.9rem;
     position:absolute;
@@ -183,13 +246,49 @@ input[type=range]{
   }
 
   #cards .select .progress{
-    background-color: #33ff00;
+    background-color: #00e1ff;
   }
 
 
   #cards .select .selector{
-    background-color: #33ff00;
+    background-color: #00e1ff;
   }
 
 
+
+  /*dark theme*/
+
+
+   .dark{
+    background-color: #0c0e16;
+
+    color: white;
+
+  }
+
+   .dark .pause svg{
+    fill: #ffff;
+  
+  }
+  .dark #controls button svg path{
+    fill: white;
+
+  }
+
+  .dark #cards svg path{
+    fill:grey;
+  }
+
+  .dark #cards .select svg path{
+    fill: white;
+  }
+  
+  
+.dark #cards button {
+  background-color: #181c2c;
+}
+
+.dark #cards .select {
+  background-color: #1d2542;
+}
 
